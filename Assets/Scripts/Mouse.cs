@@ -6,7 +6,6 @@ public class Mouse : MonoBehaviour
 {
     RadioScript radioScript;
     public GameObject radioObject;
-    public GameObject lightobject;
     public GameObject outOfCamera;
 
     // Start is called before the first frame update
@@ -24,7 +23,6 @@ public class Mouse : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        lightobject.transform.position = collision.gameObject.transform.position;
         if (collision.gameObject.transform.CompareTag("FrequencyChange")) 
         {
             radioScript.canChangeFrequency = true;
@@ -32,8 +30,6 @@ public class Mouse : MonoBehaviour
         }
         if(collision.gameObject.transform.CompareTag("UI"))
         {
-            Debug.Log("Znalaz³em canvas");
-            lightobject.transform.position = collision.gameObject.transform.position;
         }
     }
 
