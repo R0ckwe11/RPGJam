@@ -6,20 +6,23 @@ using UnityEngine.UI;
 public class RadioScript : MonoBehaviour
 {
     public float frequency;
-    public bool canChangeFrequency;
     public GameObject rotatingWheel;
-    public bool isCodingEnabled;
+
     public float shift;
     public float compression;
-    public bool isRadioActive; //iks de de de 1 is On 0 is Off
+
     public Slider compressionSlider;
     public Slider shiftSlider;
-    public bool receiving; // 1 is receiving 0 is transmiting
+
     public float frequencyMultipiler;
     public GameObject frequencyMeter;
     RectTransform frequencyMeterRectTransform;
     public float frequencyMeterPosition;
 
+    public bool canChangeFrequency; //1 can change 0 
+    public bool isCodingActive; //1 is active 0 is not active
+    public bool isReceivingActive; // 1 is receiving 0 is transmiting
+    public bool isRadioActive; //iks de de de 1 is On 0 is Off
 
     // Start is called before the first frame update
     void Start()
@@ -58,9 +61,9 @@ public class RadioScript : MonoBehaviour
                 rotatingWheel.transform.Rotate(0, 0, -Input.mouseScrollDelta.y * 5f);
             }
         }
-        frequencyMeterPosition = 1780 - 8 * frequency;
+        frequencyMeterPosition = 38 + 1780 - 8 * frequency;
         //frequencyMeterRectTransform.anchoredPosition = new Vector2(frequencyMeterPosition, 120);
-        frequencyMeterRectTransform.anchoredPosition = Vector2.MoveTowards(frequencyMeterRectTransform.anchoredPosition, new Vector2(frequencyMeterPosition, 120), 2f * frequencyMultipiler);
+        frequencyMeterRectTransform.anchoredPosition = Vector2.MoveTowards(frequencyMeterRectTransform.anchoredPosition, new Vector2(frequencyMeterPosition, 88), 20f);
     }
 
     void ReadFromSliders()

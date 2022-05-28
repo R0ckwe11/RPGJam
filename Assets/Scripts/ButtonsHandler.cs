@@ -22,6 +22,10 @@ public class ButtonsHandler : MonoBehaviour
 
     public GameObject buttonTransmitting;
     public GameObject buttonReceiving;
+
+    public GameObject buttonCodingActive;
+    public GameObject buttonCodingDeactive;
+
     void Start()
     {
         mapAnim = mapObject.GetComponent<Animator>();
@@ -63,12 +67,14 @@ public class ButtonsHandler : MonoBehaviour
     {
         buttonOffRadio.SetActive(true);
         buttonOnRadio.SetActive(false);
+        radioScript.isRadioActive = true;
     }
 
     public void OffRadio()
     {
         buttonOffRadio.SetActive(false);
         buttonOnRadio.SetActive(true);
+        radioScript.isRadioActive = false;
     }
 
     public void SetMultiplierToHigher()
@@ -99,11 +105,27 @@ public class ButtonsHandler : MonoBehaviour
     {
         buttonTransmitting.SetActive(false);
         buttonReceiving.SetActive(true);
+        radioScript.isReceivingActive = false;
     }
 
     public void SetToReceiving()
     {
         buttonTransmitting.SetActive(true);
         buttonReceiving.SetActive(false);
+        radioScript.isReceivingActive = true;
+    }
+
+    public void SetCodingToActive()
+    {
+        buttonCodingActive.SetActive(false);
+        buttonCodingDeactive.SetActive(true);
+        radioScript.isCodingActive = true;
+    }
+
+    public void SetCodingToNotActive()
+    {
+        buttonCodingActive.SetActive(true);
+        buttonCodingDeactive.SetActive(false);
+        radioScript.isCodingActive = false;
     }
 }
