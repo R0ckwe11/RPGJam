@@ -16,15 +16,21 @@ public class ButtonsHandler : MonoBehaviour
     public GameObject hideAllButton;
     public GameObject buttonOnRadio;
     public GameObject buttonOffRadio;
+    public GameObject LEDRadioOn;
+    public GameObject LEDRadioOff;
 
     public GameObject buttonMultiplierHigher;
     public GameObject buttonMultiplierLower;
 
     public GameObject buttonTransmitting;
     public GameObject buttonReceiving;
+    public GameObject LEDTransmiting;
+    public GameObject LEDNotTransmiting;
 
     public GameObject buttonCodingActive;
     public GameObject buttonCodingDeactive;
+
+   
 
     void Start()
     {
@@ -68,6 +74,8 @@ public class ButtonsHandler : MonoBehaviour
         buttonOffRadio.SetActive(true);
         buttonOnRadio.SetActive(false);
         radioScript.isRadioActive = true;
+        LEDRadioOn.SetActive(true);
+        LEDRadioOff.SetActive(false);
     }
 
     public void OffRadio()
@@ -75,6 +83,8 @@ public class ButtonsHandler : MonoBehaviour
         buttonOffRadio.SetActive(false);
         buttonOnRadio.SetActive(true);
         radioScript.isRadioActive = false;
+        LEDRadioOn.SetActive(false);
+        LEDRadioOff.SetActive(true);
     }
 
     public void SetMultiplierToHigher()
@@ -106,6 +116,8 @@ public class ButtonsHandler : MonoBehaviour
         buttonTransmitting.SetActive(false);
         buttonReceiving.SetActive(true);
         radioScript.isReceivingActive = false;
+        LEDTransmiting.SetActive(true);
+        LEDNotTransmiting.SetActive(false);
     }
 
     public void SetToReceiving()
@@ -113,6 +125,8 @@ public class ButtonsHandler : MonoBehaviour
         buttonTransmitting.SetActive(true);
         buttonReceiving.SetActive(false);
         radioScript.isReceivingActive = true;
+        LEDTransmiting.SetActive(false);
+        LEDNotTransmiting.SetActive(true);
     }
 
     public void SetCodingToActive()
