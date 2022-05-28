@@ -5,7 +5,6 @@ namespace Assets.Scripts
 {
     public class Clock : MonoBehaviour
     {
-        public MainGameLogic gameLogic;
         public int currentHours = 7;
         public float currentMinutes = 0;
         public bool timerIsRunning = true;

@@ -481,7 +481,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 7
+  m_Text: 21
 --- !u!222 &286177123
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1848,7 +1848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &768403324
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3380,6 +3380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1493337645}
+  - component: {fileID: 1493337646}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -3411,6 +3412,25 @@ RectTransform:
   m_AnchoredPosition: {x: 19, y: 78}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1493337646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493337644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706ac8ce9c0891b4eade4a6daa08052d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHours: 6
+  currentMinutes: 0
+  timerIsRunning: 1
+  dilation: 1
+  timeHours: {fileID: 286177122}
+  timeMinutes: {fileID: 1947270204}
+  timeColon: {fileID: 453754490}
 --- !u!1 &1499701519
 GameObject:
   m_ObjectHideFlags: 0
@@ -4109,7 +4129,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00
+  m_Text: 37
 --- !u!222 &1947270205
 CanvasRenderer:
   m_ObjectHideFlags: 0
