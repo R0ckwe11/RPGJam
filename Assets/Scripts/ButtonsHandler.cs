@@ -30,6 +30,7 @@ public class ButtonsHandler : MonoBehaviour
     public GameObject buttonCodingActive;
     public GameObject buttonCodingDeactive;
 
+    bool lightLED;
    
 
     void Start()
@@ -38,6 +39,25 @@ public class ButtonsHandler : MonoBehaviour
         pageWithCodesAnim = pageWithCodesObject.GetComponent<Animator>();
         hideAllButton.SetActive(false);
         radioScript = radioObject.GetComponent<RadioScript>();
+    }
+
+    void Update()
+    {
+        CheckThatOneLED();
+    }
+
+    public void CheckThatOneLED()
+    {
+        if (lightLED && radioScript.isRadioActive)
+        {
+            LEDTransmiting.SetActive(true);
+            LEDNotTransmiting.SetActive(false);
+        }
+        else
+        {
+            LEDTransmiting.SetActive(false);
+            LEDNotTransmiting.SetActive(true);
+        }
     }
 
     public void ShowMap()
@@ -116,8 +136,7 @@ public class ButtonsHandler : MonoBehaviour
         buttonTransmitting.SetActive(false);
         buttonReceiving.SetActive(true);
         radioScript.isReceivingActive = false;
-        LEDTransmiting.SetActive(true);
-        LEDNotTransmiting.SetActive(false);
+        lightLED = true;
     }
 
     public void SetToReceiving()
@@ -125,8 +144,7 @@ public class ButtonsHandler : MonoBehaviour
         buttonTransmitting.SetActive(true);
         buttonReceiving.SetActive(false);
         radioScript.isReceivingActive = true;
-        LEDTransmiting.SetActive(false);
-        LEDNotTransmiting.SetActive(true);
+        lightLED = false;
     }
 
     public void SetCodingToActive()
