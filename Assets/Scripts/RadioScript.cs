@@ -39,7 +39,6 @@ public class RadioScript : MonoBehaviour
     {
         ChangeFrequency();
         ReadFromSliders();
-        frequencyMeterRectTransform.anchoredPosition = new Vector2(1380, 120);
     }
 
     void ChangeFrequency()
@@ -59,7 +58,9 @@ public class RadioScript : MonoBehaviour
                 rotatingWheel.transform.Rotate(0, 0, -Input.mouseScrollDelta.y * 5f);
             }
         }
-        frequencyMeterPosition = ;
+        frequencyMeterPosition = 1780 - 8 * frequency;
+        //frequencyMeterRectTransform.anchoredPosition = new Vector2(frequencyMeterPosition, 120);
+        frequencyMeterRectTransform.anchoredPosition = Vector2.MoveTowards(frequencyMeterRectTransform.anchoredPosition, new Vector2(frequencyMeterPosition, 120), 2f * frequencyMultipiler);
     }
 
     void ReadFromSliders()
