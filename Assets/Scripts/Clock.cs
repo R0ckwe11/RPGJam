@@ -5,6 +5,7 @@ namespace Assets.Scripts
 {
     public class Clock : MonoBehaviour
     {
+        public GameLogic gameLogic;
         public int currentHours = 7;
         public float currentMinutes = 0;
         public bool timerIsRunning = true;
@@ -31,10 +32,13 @@ namespace Assets.Scripts
                 {
                     currentMinutes -= 60;
                     currentHours += 1;
+                    if (currentHours == 6)
+                    {
+                        gameLogic.NextDay();
+                    }
                     if (currentHours >= 24)
                     {
                         currentHours = 0;
-                        // gameLogic.NextDay();
                     }
                 }
                 DisplayTime(GetTime());
