@@ -10,7 +10,7 @@
         public float numeric3;
         public float tolerance;
         public string intelInfo;
-        public string squadFile;
+        public string squadInfo;
         public string numericInfo1;
         public string numericInfo2;
         public string numericInfo3;

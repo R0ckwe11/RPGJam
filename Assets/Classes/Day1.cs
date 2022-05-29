@@ -9,7 +9,7 @@
             intel = 290.3f;
             intelInfo = "H38P1";
             squad = 184.6f;
-            squadFile = "HCUWBDKJ241AKJNAIB874B0DB29BD02K";
+            squadInfo = "IMWAKINGUP";
             numeric1 = 121.3f;
             numericInfo1 = "NEL3XLD3GE2HC3";
             numeric2 = 85.6f;

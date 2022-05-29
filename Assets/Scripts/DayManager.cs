@@ -8,6 +8,7 @@ namespace Assets.Scripts
     public class DayManager : MonoBehaviour
     {
         public Day activeDay;
+        public AudioHandler audioHandler;
 
         private readonly List<Day> days = new();
         // Start is called before the first frame update

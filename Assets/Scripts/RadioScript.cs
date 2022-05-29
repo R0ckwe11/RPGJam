@@ -59,6 +59,7 @@ namespace Assets.Scripts
                 if (Input.mouseScrollDelta.y != 0)
                 {
                     isFrame2Active = !isFrame2Active;
+                    audioSource.Play();
                 }
 
                 rotatingWheel.transform.Rotate(0, 0, Input.mouseScrollDelta.y * 5f);

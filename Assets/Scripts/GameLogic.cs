@@ -21,9 +21,10 @@ namespace Assets.Scripts
         void Update()
         {
             audioHandler.UpdateNoise();
-            if (audioHandler.GetCurrentAudioSource())
+            audioHandler.UpdateLetters();
+            if (audioHandler.GetCurrentNoiseSource())
             {
-                audioHandler.FadeNoise();
+                audioHandler.BlendSources();
             }
         }
 

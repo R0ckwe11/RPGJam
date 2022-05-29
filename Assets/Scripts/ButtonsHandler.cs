@@ -64,11 +64,13 @@ namespace Assets.Scripts
             {
                 LEDTransmiting.SetActive(true);
                 LEDNotTransmiting.SetActive(false);
+                terminalAnim.SetBool("showTerminal", true);
             }
             else
             {
                 LEDTransmiting.SetActive(false);
                 LEDNotTransmiting.SetActive(true);
+                terminalAnim.SetBool("showTerminal", false);
             }
         }
 
