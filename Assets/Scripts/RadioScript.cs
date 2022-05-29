@@ -7,6 +7,8 @@ public class RadioScript : MonoBehaviour
 {
     public float frequency;
     public GameObject rotatingWheel;
+    public GameObject Frame2;
+    public bool isFrame2Active;
 
     public float shift;
     public float compression;
@@ -27,6 +29,7 @@ public class RadioScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isFrame2Active = false;
         isRadioActive = false;
         frequency = 100;
         compression = 0.4f;
@@ -49,16 +52,24 @@ public class RadioScript : MonoBehaviour
         if(canChangeFrequency)
         {
             frequency += Input.mouseScrollDelta.y * frequencyMultipiler;
+            Frame2.SetActive(isFrame2Active);
+            if (Input.mouseScrollDelta.y != 0)
+            {
+                isFrame2Active = !isFrame2Active;
+            }
+
             rotatingWheel.transform.Rotate(0, 0, Input.mouseScrollDelta.y * 5f);
             if (frequency < 50)
             {
                 frequency = 50;
                 rotatingWheel.transform.Rotate(0, 0, -Input.mouseScrollDelta.y * 5f);
+                isFrame2Active = !isFrame2Active;
             }
             if (frequency > 310)
             {
                 frequency = 310;
                 rotatingWheel.transform.Rotate(0, 0, -Input.mouseScrollDelta.y * 5f);
+                isFrame2Active = !isFrame2Active;
             }
         }
         frequencyMeterPosition = 38 + 1780 - 8 * frequency;
