@@ -9,6 +9,8 @@ namespace Assets.Scripts
         public GameObject rotatingWheel;
         public GameObject Frame2;
         public bool isFrame2Active;
+    public GameObject DialSound;
+    public AudioSource audioSource;
 
         public float shift;
         public float compression;
@@ -26,19 +28,20 @@ namespace Assets.Scripts
         public bool isTransmittingActive; // 1 is receiving 0 is transmiting
         public bool isRadioActive; //iks de de de 1 is On 0 is Off
 
-        // Start is called before the first frame update
-        void Start()
-        {
-            isFrame2Active = false;
-            isRadioActive = false;
-            frequency = 100;
-            compression = 0.4f;
-            compressionSlider.value = compression;
-            shift = 0.5f;
-            shiftSlider.value = shift;
-            frequencyMultipiler = 1;
-            frequencyMeterRectTransform = frequencyMeter.GetComponent<RectTransform>();
-        }
+    // Start is called before the first frame update
+    void Start()
+    {
+        isFrame2Active = false;
+        isRadioActive = false;
+        frequency = 100;
+        compression = 0.4f;
+        compressionSlider.value = compression;
+        shift = 0.5f;
+        shiftSlider.value = shift;
+        frequencyMultipiler = 1;
+        frequencyMeterRectTransform = frequencyMeter.GetComponent<RectTransform>();
+        audioSource = DialSound.GetComponent<AudioSource>();
+    }
 
         // Update is called once per frame
         void Update()
