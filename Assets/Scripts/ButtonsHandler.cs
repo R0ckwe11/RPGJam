@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class ButtonsHandler : MonoBehaviour
 {
     RadioScript radioScript;
     public GameObject rotatingElement;
+    public AudioSource sound;
 
     public GameObject radioObject;
     public GameObject mapObject;
@@ -16,6 +18,8 @@ public class ButtonsHandler : MonoBehaviour
     public GameObject terminal;
     public Animator terminalAnim;
     public InputField terminalText;
+    public GameObject soundFather;
+    public GameObject soundChild;
 
     public GameObject hideAllButton;
     public GameObject buttonOnRadio;
@@ -115,6 +119,10 @@ public class ButtonsHandler : MonoBehaviour
         radioScript.isRadioActive = true;
         LEDRadioOn.SetActive(true);
         LEDRadioOff.SetActive(false);
+        soundChild = soundFather.transform.GetChild(0).gameObject;
+        sound = soundChild.GetComponent<AudioSource>();
+        sound.Play();
+
     }
 
     public void OffRadio()
@@ -124,6 +132,9 @@ public class ButtonsHandler : MonoBehaviour
         radioScript.isRadioActive = false;
         LEDRadioOn.SetActive(false);
         LEDRadioOff.SetActive(true);
+        soundChild = soundFather.transform.GetChild(1).gameObject;
+        sound = soundChild.GetComponent<AudioSource>();
+        sound.Play();
     }
 
     public void SetMultiplierToHigher()
@@ -134,9 +145,18 @@ public class ButtonsHandler : MonoBehaviour
             leverMultiplier[0].SetActive(false);
             leverMultiplier[1].SetActive(true);
             leverMultiplier[2].SetActive(false);
+            soundChild = soundFather.transform.GetChild(3).gameObject;
+            sound = soundChild.GetComponent<AudioSource>();
+            sound.Play();
         }
         else
         {
+            if (radioScript.frequencyMultipiler == 1)
+            {
+                soundChild = soundFather.transform.GetChild(3).gameObject;
+                sound = soundChild.GetComponent<AudioSource>();
+                sound.Play();
+            }
             radioScript.frequencyMultipiler = 10f;
             leverMultiplier[0].SetActive(true);
             leverMultiplier[1].SetActive(false);
@@ -152,9 +172,18 @@ public class ButtonsHandler : MonoBehaviour
             leverMultiplier[0].SetActive(false);
             leverMultiplier[1].SetActive(true);
             leverMultiplier[2].SetActive(false);
+            soundChild = soundFather.transform.GetChild(3).gameObject;
+            sound = soundChild.GetComponent<AudioSource>();
+            sound.Play();
         }
         else
         {
+            if (radioScript.frequencyMultipiler == 1)
+            {
+                soundChild = soundFather.transform.GetChild(3).gameObject;
+                sound = soundChild.GetComponent<AudioSource>();
+                sound.Play();
+            }
             radioScript.frequencyMultipiler = 0.1f;
             leverMultiplier[0].SetActive(false);
             leverMultiplier[1].SetActive(false);
@@ -168,8 +197,9 @@ public class ButtonsHandler : MonoBehaviour
         buttonReceiving.SetActive(true);
         radioScript.isReceivingActive = false;
         lightLED = true;
-
-
+        soundChild = soundFather.transform.GetChild(2).gameObject;
+        sound = soundChild.GetComponent<AudioSource>();
+        sound.Play();
     }
 
     public void SetToReceiving()
@@ -178,6 +208,9 @@ public class ButtonsHandler : MonoBehaviour
         buttonReceiving.SetActive(false);
         radioScript.isReceivingActive = true;
         lightLED = false;
+        soundChild = soundFather.transform.GetChild(2).gameObject;
+        sound = soundChild.GetComponent<AudioSource>();
+        sound.Play();
     }
 
     public void SetCodingToActive()
@@ -185,6 +218,9 @@ public class ButtonsHandler : MonoBehaviour
         buttonCodingActive.SetActive(false);
         buttonCodingDeactive.SetActive(true);
         radioScript.isCodingActive = true;
+        soundChild = soundFather.transform.GetChild(4).gameObject;
+        sound = soundChild.GetComponent<AudioSource>();
+        sound.Play();
     }
 
     public void SetCodingToNotActive()
@@ -192,5 +228,8 @@ public class ButtonsHandler : MonoBehaviour
         buttonCodingActive.SetActive(true);
         buttonCodingDeactive.SetActive(false);
         radioScript.isCodingActive = false;
+        soundChild = soundFather.transform.GetChild(4).gameObject;
+        sound = soundChild.GetComponent<AudioSource>();
+        sound.Play();
     }
 }
